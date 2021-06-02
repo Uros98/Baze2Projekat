@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="878f78a93a614c1b8b3e54b977f8ab6a" Name="Diagram1" >
+        <EntityTypeShape EntityType="KladionicaModel.Dogadjaj" Width="1.5" PointX="8.5" PointY="7.875" />
+        <EntityTypeShape EntityType="KladionicaModel.Tiket" Width="1.5" PointX="8.625" PointY="4.625" />
+        <EntityTypeShape EntityType="KladionicaModel.Korisnik" Width="1.5" PointX="11.375" PointY="2.25" />
+        <EntityTypeShape EntityType="KladionicaModel.Radnik" Width="1.5" PointX="2" PointY="3.5" />
+        <EntityTypeShape EntityType="KladionicaModel.Operater" Width="1.5" PointX="3.375" PointY="6.375" />
+        <InheritanceConnector EntityType="KladionicaModel.Operater" />
+        <EntityTypeShape EntityType="KladionicaModel.Barmen" Width="1.5" PointX="0.5" PointY="6.25" />
+        <InheritanceConnector EntityType="KladionicaModel.Barmen" />
+        <EntityTypeShape EntityType="KladionicaModel.Lokal" Width="1.5" PointX="6.375" PointY="2.25" />
+        <EntityTypeShape EntityType="KladionicaModel.Pice" Width="1.5" PointX="1.25" PointY="9.125" />
+        <AssociationConnector Association="KladionicaModel.BarmenPice" />
+        <AssociationConnector Association="KladionicaModel.KorisnikTiket" />
+        <AssociationConnector Association="KladionicaModel.KorisnikPice" />
+        <AssociationConnector Association="KladionicaModel.OperaterTiket" />
+        <AssociationConnector Association="KladionicaModel.DogadjajTiket" />
+        <AssociationConnector Association="KladionicaModel.LokalRadnik" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

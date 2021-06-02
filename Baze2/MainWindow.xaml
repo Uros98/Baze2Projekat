@@ -1,0 +1,20 @@
+﻿<Window x:Class="Baze2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Baze2"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <StackPanel Orientation="Vertical">
+        <Button x:Name="lokalButton" Content="Lokali" Height="50" FontSize="30" Click="LokalButton_Click"/>
+        <Button x:Name="radnikButton" Content="Radnici" Height="50" FontSize="30" Click="RadnikButton_Click"/>
+        <Button x:Name="barmenButton" Content="Barmeni" Height="50" FontSize="30" Click="BarmenButton_Click"/>
+        <Button x:Name="operaterButton" Content="Operateri" Height="50" FontSize="30" Click="OperaterButton_Click"/>
+        <Button x:Name="korisnikButton" Content="Korisnici" Height="50" FontSize="30" Click="KorisnikButton_Click"/>
+        <Button x:Name="tiketButton" Content="Tiketi" Height="50" FontSize="30" Click="TiketButton_Click"/>
+        <Button x:Name="piceButton" Content="Pica" Height="50" FontSize="30" Click="PiceButton_Click"/>
+        <Button x:Name="dogadjajButton" Content="Dogadjaji" Height="50" FontSize="30" Click="DogadjajButton_Click"/>
+
+    </StackPanel>
+</Window>

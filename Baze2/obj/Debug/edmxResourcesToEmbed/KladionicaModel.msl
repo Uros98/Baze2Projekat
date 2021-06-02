@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="KladionicaModelStoreContainer" CdmEntityContainer="KladionicaModelContainer">
+    <EntitySetMapping Name="Dogadjajs">
+      <EntityTypeMapping TypeName="IsTypeOf(KladionicaModel.Dogadjaj)">
+        <MappingFragment StoreEntitySet="Dogadjajs">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="dogKv" ColumnName="dogKv" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tikets">
+      <EntityTypeMapping TypeName="IsTypeOf(KladionicaModel.Tiket)">
+        <MappingFragment StoreEntitySet="Tikets">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="tKv" ColumnName="tKv" />
+          <ScalarProperty Name="tDob" ColumnName="tDob" />
+          <ScalarProperty Name="KorisnikId" ColumnName="KorisnikId" />
+          <ScalarProperty Name="OperaterId" ColumnName="OperaterId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Korisniks">
+      <EntityTypeMapping TypeName="IsTypeOf(KladionicaModel.Korisnik)">
+        <MappingFragment StoreEntitySet="Korisniks">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="kIme" ColumnName="kIme" />
+          <ScalarProperty Name="kPrz" ColumnName="kPrz" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Radniks">
+      <EntityTypeMapping TypeName="IsTypeOf(KladionicaModel.Radnik)">
+        <MappingFragment StoreEntitySet="Radniks">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="radIme" ColumnName="radIme" />
+          <ScalarProperty Name="radPrz" ColumnName="radPrz" />
+          <ScalarProperty Name="LokalId" ColumnName="LokalId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(KladionicaModel.Barmen)">
+        <MappingFragment StoreEntitySet="Radniks_Barmen">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="barSektor" ColumnName="barSektor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(KladionicaModel.Operater)">
+        <MappingFragment StoreEntitySet="Radniks_Operater">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="opRacunar" ColumnName="opRacunar" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Lokals">
+      <EntityTypeMapping TypeName="IsTypeOf(KladionicaModel.Lokal)">
+        <MappingFragment StoreEntitySet="Lokals">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="lokNaz" ColumnName="lokNaz" />
+          <ScalarProperty Name="lokGr" ColumnName="lokGr" />
+          <ScalarProperty Name="lokUl" ColumnName="lokUl" />
+          <ScalarProperty Name="lokBr" ColumnName="lokBr" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pices">
+      <EntityTypeMapping TypeName="IsTypeOf(KladionicaModel.Pice)">
+        <MappingFragment StoreEntitySet="Pices">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="piceNaz" ColumnName="piceNaz" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="BarmenPice" TypeName="KladionicaModel.BarmenPice" StoreEntitySet="BarmenPice">
+      <EndProperty Name="Barmen">
+        <ScalarProperty Name="Id" ColumnName="Barmen_Id" />
+      </EndProperty>
+      <EndProperty Name="Pice">
+        <ScalarProperty Name="Id" ColumnName="Pices_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="KorisnikPice" TypeName="KladionicaModel.KorisnikPice" StoreEntitySet="KorisnikPice">
+      <EndProperty Name="Korisnik">
+        <ScalarProperty Name="Id" ColumnName="Korisniks_Id" />
+      </EndProperty>
+      <EndProperty Name="Pice">
+        <ScalarProperty Name="Id" ColumnName="Pices_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="DogadjajTiket" TypeName="KladionicaModel.DogadjajTiket" StoreEntitySet="Dogadjajs">
+      <EndProperty Name="Tiket">
+        <ScalarProperty Name="Id" ColumnName="Tiket_Id" />
+      </EndProperty>
+      <EndProperty Name="Dogadjaj">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="Tiket_Id" IsNull="false" />
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

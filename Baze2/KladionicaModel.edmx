@@ -1,0 +1,541 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="KladionicaModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="KladionicaModelStoreContainer">
+    <EntitySet Name="Dogadjajs" EntityType="KladionicaModel.Store.Dogadjajs" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Tikets" EntityType="KladionicaModel.Store.Tikets" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Korisniks" EntityType="KladionicaModel.Store.Korisniks" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Radniks" EntityType="KladionicaModel.Store.Radniks" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Lokals" EntityType="KladionicaModel.Store.Lokals" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Pices" EntityType="KladionicaModel.Store.Pices" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Radniks_Barmen" EntityType="KladionicaModel.Store.Radniks_Barmen" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Radniks_Operater" EntityType="KladionicaModel.Store.Radniks_Operater" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="BarmenPice" EntityType="KladionicaModel.Store.BarmenPice" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="KorisnikPice" EntityType="KladionicaModel.Store.KorisnikPice" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_BarmenPice_Barmen" Association="KladionicaModel.Store.FK_BarmenPice_Barmen">
+      <End Role="Barmen" EntitySet="Radniks_Barmen" />
+      <End Role="BarmenPice" EntitySet="BarmenPice" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BarmenPice_Pice" Association="KladionicaModel.Store.FK_BarmenPice_Pice">
+      <End Role="Pice" EntitySet="Pices" />
+      <End Role="BarmenPice" EntitySet="BarmenPice" />
+    </AssociationSet>
+    <AssociationSet Name="KorisnikTiket" Association="KladionicaModel.Store.KorisnikTiket">
+      <End Role="Korisnik" EntitySet="Korisniks" />
+      <End Role="Tiket" EntitySet="Tikets" />
+    </AssociationSet>
+    <AssociationSet Name="FK_KorisnikPice_Korisnik" Association="KladionicaModel.Store.FK_KorisnikPice_Korisnik">
+      <End Role="Korisnik" EntitySet="Korisniks" />
+      <End Role="KorisnikPice" EntitySet="KorisnikPice" />
+    </AssociationSet>
+    <AssociationSet Name="FK_KorisnikPice_Pice" Association="KladionicaModel.Store.FK_KorisnikPice_Pice">
+      <End Role="Pice" EntitySet="Pices" />
+      <End Role="KorisnikPice" EntitySet="KorisnikPice" />
+    </AssociationSet>
+    <AssociationSet Name="OperaterTiket" Association="KladionicaModel.Store.OperaterTiket">
+      <End Role="Operater" EntitySet="Radniks_Operater" />
+      <End Role="Tiket" EntitySet="Tikets" />
+    </AssociationSet>
+    <AssociationSet Name="DogadjajTiket" Association="KladionicaModel.Store.DogadjajTiket">
+      <End Role="Dogadjaj" EntitySet="Dogadjajs" />
+      <End Role="Tiket" EntitySet="Tikets" />
+    </AssociationSet>
+    <AssociationSet Name="LokalRadnik" Association="KladionicaModel.Store.LokalRadnik">
+      <End Role="Lokal" EntitySet="Lokals" />
+      <End Role="Radnik" EntitySet="Radniks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Barmen_inherits_Radnik" Association="KladionicaModel.Store.FK_Barmen_inherits_Radnik">
+      <End Role="Radnik" EntitySet="Radniks" />
+      <End Role="Barmen" EntitySet="Radniks_Barmen" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Operater_inherits_Radnik" Association="KladionicaModel.Store.FK_Operater_inherits_Radnik">
+      <End Role="Radnik" EntitySet="Radniks" />
+      <End Role="Operater" EntitySet="Radniks_Operater" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Dogadjajs">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="dogKv" Type="float" Nullable="false" />
+    <Property Name="Tiket_Id" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Tikets">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="tKv" Type="float" Nullable="false" />
+    <Property Name="tDob" Type="float" Nullable="false" />
+    <Property Name="KorisnikId" Type="int" Nullable="false" />
+    <Property Name="OperaterId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Korisniks">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="kIme" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="kPrz" Type="nvarchar" Nullable="false" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="Radniks">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="radIme" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="radPrz" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="LokalId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Lokals">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="lokNaz" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="lokGr" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="lokUl" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="lokBr" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Pices">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="piceNaz" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Radniks_Barmen">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="barSektor" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Radniks_Operater">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="opRacunar" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BarmenPice">
+    <Key>
+      <PropertyRef Name="Barmen_Id" />
+      <PropertyRef Name="Pices_Id" />
+    </Key>
+    <Property Name="Barmen_Id" Type="int" Nullable="false" />
+    <Property Name="Pices_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="KorisnikPice">
+    <Key>
+      <PropertyRef Name="Korisniks_Id" />
+      <PropertyRef Name="Pices_Id" />
+    </Key>
+    <Property Name="Korisniks_Id" Type="int" Nullable="false" />
+    <Property Name="Pices_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="KorisnikTiket">
+    <End Role="Korisnik" Type="KladionicaModel.Store.Korisniks" Multiplicity="1" />
+    <End Role="Tiket" Type="KladionicaModel.Store.Tikets" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Korisnik">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Tiket">
+        <PropertyRef Name="KorisnikId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="OperaterTiket">
+    <End Role="Operater" Type="KladionicaModel.Store.Radniks_Operater" Multiplicity="1" />
+    <End Role="Tiket" Type="KladionicaModel.Store.Tikets" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Operater">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Tiket">
+        <PropertyRef Name="OperaterId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DogadjajTiket">
+    <End Role="Dogadjaj" Type="KladionicaModel.Store.Dogadjajs" Multiplicity="*" />
+    <End Role="Tiket" Type="KladionicaModel.Store.Tikets" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Tiket">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Dogadjaj">
+        <PropertyRef Name="Tiket_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="LokalRadnik">
+    <End Role="Lokal" Type="KladionicaModel.Store.Lokals" Multiplicity="1" />
+    <End Role="Radnik" Type="KladionicaModel.Store.Radniks" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Lokal">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Radnik">
+        <PropertyRef Name="LokalId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BarmenPice_Barmen">
+    <End Role="Barmen" Type="KladionicaModel.Store.Radniks_Barmen" Multiplicity="1" />
+    <End Role="BarmenPice" Type="KladionicaModel.Store.BarmenPice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Barmen">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BarmenPice">
+        <PropertyRef Name="Barmen_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BarmenPice_Pice">
+    <End Role="BarmenPice" Type="KladionicaModel.Store.BarmenPice" Multiplicity="*" />
+    <End Role="Pice" Type="KladionicaModel.Store.Pices" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Pice">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BarmenPice">
+        <PropertyRef Name="Pices_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_KorisnikPice_Korisnik">
+    <End Role="Korisnik" Type="KladionicaModel.Store.Korisniks" Multiplicity="1" />
+    <End Role="KorisnikPice" Type="KladionicaModel.Store.KorisnikPice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Korisnik">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="KorisnikPice">
+        <PropertyRef Name="Korisniks_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_KorisnikPice_Pice">
+    <End Role="KorisnikPice" Type="KladionicaModel.Store.KorisnikPice" Multiplicity="*" />
+    <End Role="Pice" Type="KladionicaModel.Store.Pices" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Pice">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="KorisnikPice">
+        <PropertyRef Name="Pices_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Barmen_inherits_Radnik">
+    <End Role="Radnik" Type="KladionicaModel.Store.Radniks" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Barmen" Type="KladionicaModel.Store.Radniks_Barmen" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Radnik">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Barmen">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Operater_inherits_Radnik">
+    <End Role="Radnik" Type="KladionicaModel.Store.Radniks" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Operater" Type="KladionicaModel.Store.Radniks_Operater" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Radnik">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Operater">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="KladionicaModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="KladionicaModelContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Dogadjajs" EntityType="KladionicaModel.Dogadjaj" />
+          <EntitySet Name="Tikets" EntityType="KladionicaModel.Tiket" />
+          <EntitySet Name="Korisniks" EntityType="KladionicaModel.Korisnik" />
+          <EntitySet Name="Radniks" EntityType="KladionicaModel.Radnik" />
+          <EntitySet Name="Lokals" EntityType="KladionicaModel.Lokal" />
+          <EntitySet Name="Pices" EntityType="KladionicaModel.Pice" />
+          <AssociationSet Name="BarmenPice" Association="KladionicaModel.BarmenPice">
+            <End Role="Barmen" EntitySet="Radniks" />
+            <End Role="Pice" EntitySet="Pices" />
+          </AssociationSet>
+          <AssociationSet Name="KorisnikTiket" Association="KladionicaModel.KorisnikTiket">
+            <End Role="Korisnik" EntitySet="Korisniks" />
+            <End Role="Tiket" EntitySet="Tikets" />
+          </AssociationSet>
+          <AssociationSet Name="KorisnikPice" Association="KladionicaModel.KorisnikPice">
+            <End Role="Korisnik" EntitySet="Korisniks" />
+            <End Role="Pice" EntitySet="Pices" />
+          </AssociationSet>
+          <AssociationSet Name="OperaterTiket" Association="KladionicaModel.OperaterTiket">
+            <End Role="Operater" EntitySet="Radniks" />
+            <End Role="Tiket" EntitySet="Tikets" />
+          </AssociationSet>
+          <AssociationSet Name="DogadjajTiket" Association="KladionicaModel.DogadjajTiket">
+            <End Role="Dogadjaj" EntitySet="Dogadjajs" />
+            <End Role="Tiket" EntitySet="Tikets" />
+          </AssociationSet>
+          <AssociationSet Name="LokalRadnik" Association="KladionicaModel.LokalRadnik">
+            <End Role="Lokal" EntitySet="Lokals" />
+            <End Role="Radnik" EntitySet="Radniks" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Dogadjaj">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <Property Name="dogKv" Type="Double" Nullable="false" />
+          <NavigationProperty Name="Tiket" Relationship="KladionicaModel.DogadjajTiket" FromRole="Dogadjaj" ToRole="Tiket" />
+        </EntityType>
+        <EntityType Name="Tiket">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <Property Name="tKv" Type="Double" Nullable="false" />
+          <Property Name="tDob" Type="Double" Nullable="false" />
+          <NavigationProperty Name="Korisnik" Relationship="KladionicaModel.KorisnikTiket" FromRole="Tiket" ToRole="Korisnik" />
+          <Property Name="KorisnikId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Operater" Relationship="KladionicaModel.OperaterTiket" FromRole="Tiket" ToRole="Operater" />
+          <Property Name="OperaterId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Dogadjajs" Relationship="KladionicaModel.DogadjajTiket" FromRole="Tiket" ToRole="Dogadjaj" />
+        </EntityType>
+        <EntityType Name="Korisnik">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <Property Name="kIme" Type="String" Nullable="false" MaxLength="20" />
+          <Property Name="kPrz" Type="String" Nullable="false" MaxLength="20" />
+          <NavigationProperty Name="Tikets" Relationship="KladionicaModel.KorisnikTiket" FromRole="Korisnik" ToRole="Tiket" />
+          <NavigationProperty Name="Pices" Relationship="KladionicaModel.KorisnikPice" FromRole="Korisnik" ToRole="Pice" />
+        </EntityType>
+        <EntityType Name="Radnik">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <Property Name="radIme" Type="String" Nullable="false" MaxLength="20" />
+          <Property Name="radPrz" Type="String" Nullable="false" MaxLength="20" />
+          <NavigationProperty Name="Lokal" Relationship="KladionicaModel.LokalRadnik" FromRole="Radnik" ToRole="Lokal" />
+          <Property Name="LokalId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Operater" BaseType="KladionicaModel.Radnik" >
+          <NavigationProperty Name="Tikets" Relationship="KladionicaModel.OperaterTiket" FromRole="Operater" ToRole="Tiket" />
+          <Property Name="opRacunar" Type="String" Nullable="false" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Barmen" BaseType="KladionicaModel.Radnik" >
+          <NavigationProperty Name="Pices" Relationship="KladionicaModel.BarmenPice" FromRole="Barmen" ToRole="Pice" />
+          <Property Name="barSektor" Type="String" Nullable="false" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Lokal">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <Property Name="lokNaz" Type="String" Nullable="false" MaxLength="20" />
+          <Property Name="lokGr" Type="String" Nullable="false" MaxLength="20" />
+          <Property Name="lokUl" Type="String" Nullable="false" MaxLength="20" />
+          <Property Name="lokBr" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Radniks" Relationship="KladionicaModel.LokalRadnik" FromRole="Lokal" ToRole="Radnik" />
+        </EntityType>
+        <EntityType Name="Pice">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <Property Name="piceNaz" Type="String" Nullable="false" />
+          <NavigationProperty Name="Barmen" Relationship="KladionicaModel.BarmenPice" FromRole="Pice" ToRole="Barmen" />
+          <NavigationProperty Name="Korisniks" Relationship="KladionicaModel.KorisnikPice" FromRole="Pice" ToRole="Korisnik" />
+        </EntityType>
+        <Association Name="BarmenPice">
+          <End Type="KladionicaModel.Barmen" Role="Barmen" Multiplicity="*" />
+          <End Type="KladionicaModel.Pice" Role="Pice" Multiplicity="*" />
+        </Association>
+        <Association Name="KorisnikTiket">
+          <End Type="KladionicaModel.Korisnik" Role="Korisnik" Multiplicity="1" />
+          <End Type="KladionicaModel.Tiket" Role="Tiket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Korisnik">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Tiket">
+              <PropertyRef Name="KorisnikId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="KorisnikPice">
+          <End Type="KladionicaModel.Korisnik" Role="Korisnik" Multiplicity="*" />
+          <End Type="KladionicaModel.Pice" Role="Pice" Multiplicity="*" />
+        </Association>
+        <Association Name="OperaterTiket">
+          <End Type="KladionicaModel.Operater" Role="Operater" Multiplicity="1" />
+          <End Type="KladionicaModel.Tiket" Role="Tiket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Operater">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Tiket">
+              <PropertyRef Name="OperaterId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="DogadjajTiket">
+          <End Type="KladionicaModel.Dogadjaj" Role="Dogadjaj" Multiplicity="*" />
+          <End Type="KladionicaModel.Tiket" Role="Tiket" Multiplicity="0..1" />
+        </Association>
+        <Association Name="LokalRadnik">
+          <End Type="KladionicaModel.Lokal" Role="Lokal" Multiplicity="1" />
+          <End Type="KladionicaModel.Radnik" Role="Radnik" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Lokal">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Radnik">
+              <PropertyRef Name="LokalId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="KladionicaModelStoreContainer" CdmEntityContainer="KladionicaModelContainer">
+    <EntitySetMapping Name="Dogadjajs">
+      <EntityTypeMapping TypeName="IsTypeOf(KladionicaModel.Dogadjaj)">
+        <MappingFragment StoreEntitySet="Dogadjajs">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="dogKv" ColumnName="dogKv" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tikets">
+      <EntityTypeMapping TypeName="IsTypeOf(KladionicaModel.Tiket)">
+        <MappingFragment StoreEntitySet="Tikets">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="tKv" ColumnName="tKv" />
+          <ScalarProperty Name="tDob" ColumnName="tDob" />
+          <ScalarProperty Name="KorisnikId" ColumnName="KorisnikId" />
+          <ScalarProperty Name="OperaterId" ColumnName="OperaterId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Korisniks">
+      <EntityTypeMapping TypeName="IsTypeOf(KladionicaModel.Korisnik)">
+        <MappingFragment StoreEntitySet="Korisniks">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="kIme" ColumnName="kIme" />
+          <ScalarProperty Name="kPrz" ColumnName="kPrz" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Radniks">
+      <EntityTypeMapping TypeName="IsTypeOf(KladionicaModel.Radnik)">
+        <MappingFragment StoreEntitySet="Radniks">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="radIme" ColumnName="radIme" />
+          <ScalarProperty Name="radPrz" ColumnName="radPrz" />
+          <ScalarProperty Name="LokalId" ColumnName="LokalId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(KladionicaModel.Barmen)">
+        <MappingFragment StoreEntitySet="Radniks_Barmen">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="barSektor" ColumnName="barSektor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(KladionicaModel.Operater)">
+        <MappingFragment StoreEntitySet="Radniks_Operater">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="opRacunar" ColumnName="opRacunar" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Lokals">
+      <EntityTypeMapping TypeName="IsTypeOf(KladionicaModel.Lokal)">
+        <MappingFragment StoreEntitySet="Lokals">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="lokNaz" ColumnName="lokNaz" />
+          <ScalarProperty Name="lokGr" ColumnName="lokGr" />
+          <ScalarProperty Name="lokUl" ColumnName="lokUl" />
+          <ScalarProperty Name="lokBr" ColumnName="lokBr" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pices">
+      <EntityTypeMapping TypeName="IsTypeOf(KladionicaModel.Pice)">
+        <MappingFragment StoreEntitySet="Pices">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="piceNaz" ColumnName="piceNaz" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="BarmenPice" TypeName="KladionicaModel.BarmenPice" StoreEntitySet="BarmenPice">
+      <EndProperty Name="Barmen">
+        <ScalarProperty Name="Id" ColumnName="Barmen_Id" />
+      </EndProperty>
+      <EndProperty Name="Pice">
+        <ScalarProperty Name="Id" ColumnName="Pices_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="KorisnikPice" TypeName="KladionicaModel.KorisnikPice" StoreEntitySet="KorisnikPice">
+      <EndProperty Name="Korisnik">
+        <ScalarProperty Name="Id" ColumnName="Korisniks_Id" />
+      </EndProperty>
+      <EndProperty Name="Pice">
+        <ScalarProperty Name="Id" ColumnName="Pices_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="DogadjajTiket" TypeName="KladionicaModel.DogadjajTiket" StoreEntitySet="Dogadjajs">
+      <EndProperty Name="Tiket">
+        <ScalarProperty Name="Id" ColumnName="Tiket_Id" />
+      </EndProperty>
+      <EndProperty Name="Dogadjaj">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="Tiket_Id" IsNull="false" />
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

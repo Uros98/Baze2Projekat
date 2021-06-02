@@ -1,0 +1,329 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F5145293-5914-488A-B2FA-9ABD57236441}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Baze2</RootNamespace>
+    <AssemblyName>Baze2</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Views\AddBarmenView.xaml.cs">
+      <DependentUpon>AddBarmenView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AddDogadjajView.xaml.cs">
+      <DependentUpon>AddDogadjajView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AddKorisnikView.xaml.cs">
+      <DependentUpon>AddKorisnikView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AddLokalView.xaml.cs">
+      <DependentUpon>AddLokalView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AddOperaterView.xaml.cs">
+      <DependentUpon>AddOperaterView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AddPiceView.xaml.cs">
+      <DependentUpon>AddPiceView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AddTiketView.xaml.cs">
+      <DependentUpon>AddTiketView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Barmen.cs">
+      <DependentUpon>KladionicaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Views\BarmenView.xaml.cs">
+      <DependentUpon>BarmenView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Data Access\AddInDatabase.cs" />
+    <Compile Include="Data Access\DeleteFromDatabase.cs" />
+    <Compile Include="Data Access\EditInDatabase.cs" />
+    <Compile Include="Data Access\ReturnFromDatabase.cs" />
+    <Compile Include="Dogadjaj.cs">
+      <DependentUpon>KladionicaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DogadjajView.xaml.cs">
+      <DependentUpon>DogadjajView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EditBarmenView.xaml.cs">
+      <DependentUpon>EditBarmenView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EditDogadjajView.xaml.cs">
+      <DependentUpon>EditDogadjajView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EditKorisnikView.xaml.cs">
+      <DependentUpon>EditKorisnikView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EditLokalView.xaml.cs">
+      <DependentUpon>EditLokalView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EditOperaterView.xaml.cs">
+      <DependentUpon>EditOperaterView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EditPiceView.xaml.cs">
+      <DependentUpon>EditPiceView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EditTiketView.xaml.cs">
+      <DependentUpon>EditTiketView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="KladionicaModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>KladionicaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Korisnik.cs">
+      <DependentUpon>KladionicaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Views\KorisnikView.xaml.cs">
+      <DependentUpon>KorisnikView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Lokal.cs">
+      <DependentUpon>KladionicaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LokaliView.xaml.cs">
+      <DependentUpon>LokaliView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DogadjajModel.cs" />
+    <Compile Include="Operater.cs">
+      <DependentUpon>KladionicaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Views\OperaterView.xaml.cs">
+      <DependentUpon>OperaterView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pice.cs">
+      <DependentUpon>KladionicaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PiceView.xaml.cs">
+      <DependentUpon>PiceView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RadniciView.xaml.cs">
+      <DependentUpon>RadniciView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Radnik.cs">
+      <DependentUpon>KladionicaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Tiket.cs">
+      <DependentUpon>KladionicaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TiketView.xaml.cs">
+      <DependentUpon>TiketView.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Views\AddBarmenView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AddDogadjajView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AddKorisnikView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AddLokalView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AddOperaterView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AddPiceView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AddTiketView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\BarmenView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DogadjajView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EditBarmenView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EditDogadjajView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EditKorisnikView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EditLokalView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EditOperaterView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EditPiceView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EditTiketView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\KorisnikView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\LokaliView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="KladionicaModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>KladionicaModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KladionicaModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>KladionicaModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Views\OperaterView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PiceView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\RadniciView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TiketView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EntityDeploy Include="KladionicaModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>KladionicaModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="KladionicaModel.edmx.diagram">
+      <DependentUpon>KladionicaModel.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="KladionicaModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>KladionicaModel.Context.cs</LastGenOutput>
+      <DependentUpon>KladionicaModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="KladionicaModel.edmx.sql" />
+    <Content Include="KladionicaModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>KladionicaModel.cs</LastGenOutput>
+      <DependentUpon>KladionicaModel.edmx</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
